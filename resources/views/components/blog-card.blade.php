@@ -1,23 +1,26 @@
 @props(['blog'])
 <div class="card">
             <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png"
+            src='{{asset("storage/$blog->thumbnail")}}'
               
               class="card-img-top"
               alt="..."
             />
-            <div class="card-body">
+            <div class="card-body" style="background-color:#fff;">
               <h3 class="card-title">{{ $blog->title }}</h3>
               <p class="fs-6 text-secondary">
-                <a href="/?username={{$blog->author->username}}">
+                <a href="/?username={{$blog->author->username}}" style="color:red; text-decoration:none; padding-top:5px;">
                 {{ $blog->author->name }}
                 </a>
-              
+        
+
+                
+
                 <span> - {{ $blog->created_at->diffForHumans() }}</span>
               </p>
               <div class="tags my-3">
 
-              <a href="/?category={{$blog->category->slug}}">
+              <a href="/?category={{$blog->category->slug}}" style="color:blue; text-decoration:none;">
               <span class="badge bg-primary">{{ $blog->category->name }}</span>
 
               </a>
@@ -30,7 +33,7 @@
               <p class="card-text">
                {{ $blog->intro}}
               </p>
-              <a href="/blogs/{{$blog->slug}}" class="btn btn-primary">Read More</a>
+              <a href="/blogs/{{$blog->slug}}" class="btn btn-outline-success" >Read More</a>
             </div>
           </div>
         </div>

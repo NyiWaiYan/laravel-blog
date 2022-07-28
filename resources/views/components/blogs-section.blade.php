@@ -5,7 +5,7 @@
 
 
 <section class="container text-center" id="blogs">
-        <h1 class="display-5 fw-bold mb-4">Blogs</h1>
+        <h1 class="display-5 fw-bold mb-4" style="color:yellowgreen;">Blogs</h1>
         <div class="">
      <x-category-dropdown/>
 </div>
@@ -25,6 +25,7 @@
     @if(request('category'))
           
           <input
+         
             name="category"
               type="hidden"
               value="{{request('category')}}"
@@ -60,9 +61,10 @@
 
             
             <button
-              class="input-group-text bg-primary text-light"
+              class="input-group-text text-light"
               id="basic-addon2"
               type="submit"
+              style="background-color:yellowgreen"
             >
               Search
             </button>

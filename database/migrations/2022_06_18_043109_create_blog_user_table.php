@@ -13,17 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('blogs', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('category_id');
+        Schema::create('blog_user', function (Blueprint $table) {
+            $table->primary(['blog_id','user_id']);
+            $table->foreignId('blog_id');
             $table->foreignId('user_id');
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->text('intro');
-            $table->text('body');
-            $table->string('thumbnail')->nullable();
             $table->timestamps();
         });
+
+
+
+
+
     }
 
     /**
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('blog_user');
     }
 };

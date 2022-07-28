@@ -6,7 +6,7 @@
         <div class="col-md-5 mx-auto">
         <h3 class="text-primary text-center my-3">Registeration Form</h3>
         <div class="card p-4 my-3 shadow-sm">
-
+  
      
 <form method="POST">
   
@@ -17,11 +17,9 @@
     <input type="text"  
     value="{{old('name')}}"
     name="name"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-    
-  @error('name')
-  <p class="text-danger">{{ $message }}</p>
-  @enderror
-  </div>
+
+
+    <x-error name="name"/>
 
 
 
@@ -30,10 +28,9 @@
     <input type="text"
         value="{{old('username')}}"
         name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
-      
-  @error('username')
-  <p class="text-danger">{{ $message }}</p>
-  @enderror
+
+
+        <x-error name="username"/>
 
   </div>
 
@@ -42,10 +39,10 @@
     <input type="email"
     value="{{old('email')}}"
     name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+
+    <x-error name="email"/>
     
-    @error('email')
-  <p class="text-danger">{{ $message }}</p>
-  @enderror
   </div>
 
   <div class="mb-3">
@@ -54,10 +51,7 @@
    
     name="password" class="form-control" id="exampleInputPassword1">
 
-      
-  @error('password')
-  <p class="text-danger">{{ $message }}</p>
-  @enderror
+    <x-error name="password"/>
   </div>
   
   <button type="submit" class="btn btn-primary">Submit</button>
