@@ -35,7 +35,44 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"
     ></script>
-    {{-- ckeditor --}}
+
+
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+ 
+
+<script>
+  function onScanSuccess(decodedText, decodedResult) {
+     
+  // handle the scanned code as you like, for example:
+$("#result").val(decodedText)
+}
+
+function onScanFailure(error) {
+  // handle scan failure, usually better to ignore and keep scanning.
+  // for example:
+  console.warn(`Code scan error = ${error}`);
+}
+
+let html5QrcodeScanner = new Html5QrcodeScanner(
+  "reader",
+  { fps: 10, qrbox: {width: 250, height: 250} },
+  /* verbose= */ false);
+html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script src="/ckeditor/ckeditor.js"></script>
     <script>
         ClassicEditor.create(document.querySelector(".editor"), {

@@ -22,20 +22,23 @@ public function store(){
 
     $formData=request()->validate([
 
-        'name'=>['required','max:255','min:3'],
+        'name'=>['required'],  
         'email'=>['required','email',Rule::unique('users','email')],
         'username'=>['required','max:255','min:3',Rule::unique('users','username')],
-        'password'=>['required','min:8']
+        'password'=>['required','min:1'],
+        'meta_title'=>['required'],
+        'tax'=>['required'],
+        
 
     ]);
 
     // $formData['password']=bcrypt($formData['password']);
 
-    $user=User::create($formData);
+    // $user=User::create($formData);
 
-    //login
-    auth()->login($user);
-    return redirect('/')->with('success','welcome Dear,' .$user->name);
+    // //login
+    // auth()->login($user);
+    // return redirect('/')->with('success','welcome Dear,' .$user->name);
 
 }
 

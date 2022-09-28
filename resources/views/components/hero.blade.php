@@ -25,7 +25,7 @@
 
 
 
-      <div class="container">
+      <div class="container p-5">
 <div class="row">
     <div class="col-md-5 mt-0">
    <img src="/images/landing.jpg" height="500px" width="400px" alt="">

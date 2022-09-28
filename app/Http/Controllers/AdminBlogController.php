@@ -33,7 +33,7 @@ class AdminBlogController extends Controller
         ]);
         $formData['user_id'] = auth()->id();
         $formData['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
-        Blog::create($formData);
+        Blog::create($formData); 
 
         return redirect('/');
     }
@@ -64,6 +64,7 @@ class AdminBlogController extends Controller
             "body" =>  ["required"],
             "category_id" =>  ["required", Rule::exists('categories', 'id')]
         ]);
+
         $formData['user_id'] = auth()->id();
         $formData['thumbnail'] = request()->file('thumbnail')?
         request()->file('thumbnail')->store('thumbnails'):$blog->thumbnail;
